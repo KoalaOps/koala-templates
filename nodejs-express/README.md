@@ -1,1 +1,52 @@
-Hello {{serviceName}}
+# Hello World {{serviceName}} Express App
+
+A simple Node.js application using Express to serve a "Hello, World!" message. This template can be used as a base for new Node.js projects.
+
+## Project Structure
+
+- `package.json` - Manages project dependencies and scripts.
+- `index.js` - Main application file that sets up a basic Express server.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+
+## Getting Started
+
+1. **Install Dependencies**
+
+    ```bash
+    npm install
+    ```
+
+2. **Run the Server**
+
+    Start the server using the following command:
+
+    ```bash
+    npm start
+    ```
+
+3. **View the Application**
+
+    Open your browser and go to:
+
+    ```
+    http://localhost:8080
+    ```
+
+    You should see the message:
+
+    ```
+    Hello, World!
+    ```
+
+## Customization
+
+- Modify the `port` variable in `index.js` if you want to use a different port.
+- Update routes and responses in `index.js` to customize the server output.
+
+---
+
+Use this template as a starting point for your own Node.js applications with Express.
