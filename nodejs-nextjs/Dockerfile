@@ -27,13 +27,11 @@ RUN npm install --omit=dev
 # Copy build artifacts from the builder stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./
+# In case you use a next.config you can uncomment to following line
+# COPY --from=builder /app/next.config.js ./
 
 # Expose port
 EXPOSE 8080
 
-# Set the environment to production
-ENV NODE_ENV=production
-
 # Start Next.js app
-CMD ["npx", "next", "start"]
+CMD ["npm", "run", "start"]
