@@ -1,5 +1,5 @@
 # Hello World {{serviceName}} Express App
-{{koalaTemplate}}
+
 A simple Node.js application using Express to serve a "Hello, World!" message. This template can be used as a base for new Node.js projects.
 
 ## Project Structure
