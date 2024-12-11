@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page - Use Cases</title>
+</head>
+<body>
+    <h1>404 Page - Use Cases and Best Practices</h1>
+    <section>
+        <h2>General Use for "Not Found" Cases</h2>
+        <p>
+            A 404 error page is displayed when a user attempts to access a page that does not exist on the server.
+            This typically occurs when:
+        </p>
+        <ul>
+            <li>The URL is typed incorrectly.</li>
+            <li>A resource has been moved or deleted without proper redirection.</li>
+            <li>A broken or outdated link leads to the website.</li>
+        </ul>
+        <p>
+            The purpose of a 404 page is to:
+        </p>
+        <ul>
+            <li>Inform the user that the requested resource could not be found.</li>
+            <li>Provide options or links to guide the user back to functional parts of the website.</li>
+            <li>Maintain a consistent branding and user experience.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>404 Page for Single Page Applications (SPAs)</h2>
+        <p>
+            In Single Page Applications (SPAs), all navigation and content rendering is typically handled by JavaScript
+            on the client side. This can cause a problem with 404 errors, as direct access to specific routes may bypass
+            the SPA’s routing logic, leading to a "not found" error from the server.
+        </p>
+        <p>
+            To prevent this, the server should be configured to serve the main <code>index.html</code> file for any unknown routes.
+            The SPA can then handle the routing internally. Here’s how a 404 page is used in SPAs:
+        </p>
+        <ul>
+            <li>
+                If a user accesses a route (e.g., <code>/about</code> or <code>/profile</code>) directly, the server
+                should return the main <code>index.html</code>.
+            </li>
+            <li>
+                The SPA's JavaScript router inspects the route and displays the correct content, or redirects to
+                a custom "Page Not Found" component for invalid routes.
+            </li>
+        </ul>
+        <p>
+            This approach ensures that:
+        </p>
+        <ul>
+            <li>All valid routes are handled correctly by the SPA.</li>
+            <li>Custom 404 logic is implemented within the application for invalid routes.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Example Configuration for SPAs</h2>
+        <p>
+            In the Nginx configuration, you can use the following directive to enable SPA routing:
+        </p>
+        <pre>
+        location / {
+            try_files $uri /index.html;
+        }
+        </pre>
+        <p>
+            This ensures that all routes are served the main <code>index.html</code>, allowing the SPA to handle
+            navigation and 404 cases internally.
+        </p>
+    </section>
+</body>
+</html>
